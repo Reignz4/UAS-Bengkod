@@ -7,7 +7,7 @@ import streamlit as st
 import time
 import pickle
 
-with open("D:\\Bengkod\\UAS A11.2020.12810\\data\\processed.cleveland.data", encoding='Latin1') as file:
+with open("data\processed.cleveland.data", encoding='Latin1') as file:
   lines = [line.strip() for line in file]
 
 # Splitting the strings and creating a list of lists
@@ -46,7 +46,7 @@ y = df_clean['target']
 smote = SMOTE(random_state=42)
 X, y = smote.fit_resample(X, y)
 
-model = pickle.load(open("D:\\Bengkod\\UAS A11.2020.12810\\model\\rf_normalisasi_oversample_tuning.pkl", 'rb'))
+model = pickle.load(open("model\rf_normalisasi_oversample_tuning.pkl", 'rb'))
 
 y_pred = model.predict(X)
 accuracy = accuracy_score(y, y_pred)
